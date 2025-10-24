@@ -81,7 +81,7 @@ def sample(model, schedule, device, img_size=128, num_images=1, timesteps=1000):
 if __name__ == "__main__":
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     batch_size = 16 
-    epochs = 1000 # the model needs an huge amount of epochs
+    epochs = 1000 # the model needs a huge amount of epochs
     timesteps = 1000
     root_dir = "data"
     # Transforms
@@ -106,4 +106,5 @@ if __name__ == "__main__":
 
     generated_images = sample(model, schedule, device, num_images=5)
     for i, img in enumerate(generated_images):
+
         save_image(img.float() / 255.0, f"generated_final_{i}.png")
